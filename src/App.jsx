@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Background from './components/Background'
 
 function App() {
   const [email, setEmail] = useState('')
@@ -46,8 +47,10 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
-      <header className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+      <Background />
+
+      <header className="relative z-10 max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-md bg-indigo-600 text-white grid place-items-center font-bold">r</div>
           <span className="font-semibold text-xl text-slate-800 tracking-tight">re:collect</span>
@@ -55,9 +58,9 @@ function App() {
         <div className="text-sm text-slate-500">Second brain for your relationships</div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-6 pt-6 pb-24 grid lg:grid-cols-2 gap-12 items-center">
+      <main className="relative z-10 max-w-6xl mx-auto px-6 pt-6 pb-24 grid lg:grid-cols-2 gap-12 items-center">
         <section>
-          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600 shadow-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/70 backdrop-blur px-3 py-1 text-xs text-slate-600 shadow-sm">
             <span className="h-2 w-2 rounded-full bg-emerald-500" />
             Private beta
           </div>
@@ -91,7 +94,7 @@ function App() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@domain.com"
-                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white/90 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
               <div>
@@ -101,7 +104,7 @@ function App() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Ada Lovelace"
-                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white/90 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
               <div>
@@ -111,7 +114,7 @@ function App() {
                   value={referrer}
                   onChange={(e) => setReferrer(e.target.value)}
                   placeholder="Twitter, friend, newsletter..."
-                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white/90 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
               <div>
@@ -121,7 +124,7 @@ function App() {
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="Anything you'd like us to know?"
                   rows={3}
-                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white/90 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
@@ -144,8 +147,8 @@ function App() {
         </section>
       </main>
 
-      <footer className="max-w-6xl mx-auto px-6 pb-10 text-sm text-slate-500">
-        <div className="border-t border-slate-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="relative z-10 max-w-6xl mx-auto px-6 pb-10 text-sm text-slate-500">
+        <div className="border-t border-slate-200/70 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span>© {new Date().getFullYear()} re:collect</span>
           <span className="text-slate-400">Crafted for thoughtful connectors</span>
         </div>
