@@ -4,7 +4,7 @@ import Background from './components/Background'
 function App() {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
-  const [referrer, setReferrer] = useState('')
+  const [linkedin, setLinkedin] = useState('')
   const [notes, setNotes] = useState('')
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState(null)
@@ -25,7 +25,7 @@ function App() {
       const res = await fetch(`${backend}/api/waitlist`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, name: name || undefined, referrer: referrer || undefined, notes: notes || undefined })
+        body: JSON.stringify({ email, name: name || undefined, linkedin: linkedin || undefined, notes: notes || undefined })
       })
 
       if (!res.ok) {
@@ -37,7 +37,7 @@ function App() {
       setStatus({ type: 'success', message: data.message || "You're on the list! We'll be in touch soon." })
       setEmail('')
       setName('')
-      setReferrer('')
+      setLinkedin('')
       setNotes('')
     } catch (error) {
       setStatus({ type: 'error', message: error.message })
@@ -108,12 +108,12 @@ function App() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700">How did you hear about re:collect? <span className="text-slate-400 font-normal">(optional)</span></label>
+                <label className="block text-sm font-medium text-slate-700">LinkedIn <span className="text-slate-400 font-normal">(optional)</span></label>
                 <input
-                  type="text"
-                  value={referrer}
-                  onChange={(e) => setReferrer(e.target.value)}
-                  placeholder="Twitter, friend, newsletter..."
+                  type="url"
+                  value={linkedin}
+                  onChange={(e) => setLinkedin(e.target.value)}
+                  placeholder="https://www.linkedin.com/in/your-handle"
                   className="mt-1 w-full rounded-lg border border-slate-300 bg-white/90 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
